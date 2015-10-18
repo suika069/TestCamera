@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  TestCanera
+//  TestCamera
 //
 //  Created by suika069 on 2015/10/12.
 //  Copyright © 2015年 suika069. All rights reserved.
@@ -183,12 +183,14 @@ class ViewController: UIViewController {
         focusView!.center = self.view!.center;
         focusView!.image = UIImage(named: "focus_circle")
         self.view.addSubview(focusView!)
+        focusView!.hidden = true
         
         //露出
         exposureView = UIImageView(frame: focusView!.frame)
         exposureView!.userInteractionEnabled = true;
         exposureView!.image = UIImage(named: "exposure_circle")
         self.view.addSubview(exposureView!)
+        exposureView!.hidden = true
         
     }
     
@@ -266,6 +268,9 @@ class ViewController: UIViewController {
     
     // 撮影ボタン
     func onClickMyButton(sender: UIButton){
+        //ボタンの非表示
+        focusView!.hidden = true
+        exposureView!.hidden = true
         // ビデオ出力に接続.
         let myVideoConnection = myImageOutput.connectionWithMediaType(AVMediaTypeVideo)
         
@@ -310,6 +315,9 @@ class ViewController: UIViewController {
     
     // Viewが触られた時
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent!) {
+        //　マーカーボタンを表示する
+        focusView!.hidden = false
+        exposureView!.hidden = false
         //触られたViewを判定する
         let touch: UITouch = touches.first as UITouch!
         if(touch.view == focusView){
