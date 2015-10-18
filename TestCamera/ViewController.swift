@@ -438,41 +438,4 @@ class ViewController: UIViewController {
         return BODY_ROTATE
     }
     
-    /*
-    -----------------------------------------------------------------
-    旧ソース置き場
-    -----------------------------------------------------------------
-    // StoryBoardの利用を禁止するメソッド(必須)
-    required init(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-    }
-    
-    // 初期化メソッド(必須)
-    init() {
-    //インスタンス生成
-    super.init(nibName: nil, bundle: nil)
-    }
-    
-    func rotateImage(myImage: UIImage) -> UIImage {
-    let imageSize: CGSize = CGSize(width: myImage.size.width, height: myImage.size.height)
-    UIGraphicsBeginImageContext(imageSize)
-    let context: CGContextRef = UIGraphicsGetCurrentContext()!
-    CGContextTranslateCTM(context, myImage.size.width/2, myImage.size.height/2);
-    // 回転の中心点を移動
-    // Y軸方向を補正
-    CGContextScaleCTM(context, 1.0, -1.0)
-    // 270°回転させたい場合(ラディアンで算出）
-    let radian: Double = 270 * M_PI / 180
-    CGContextRotateCTM(context, CGFloat(radian));
-    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(-myImage.size.width/2, -myImage.size.height/2, myImage.size.width, myImage.size.height), myImage.CGImage)
-    
-    let rotatedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
-    UIGraphicsEndImageContext()
-    // UIImageViewに回転後の画像を設定
-    let imageView: UIImageView  = UIImageView.init()
-    imageView.image = rotatedImage
-    return imageView.image!
-    }
-    
-    */
 }
